@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "three": "^0.178.0"
+  },
+  "devDependencies": {
+    "earcut": "^3.0.1",
+    "vite": "^7.0.1"
+  }
+}
