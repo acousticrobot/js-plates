@@ -20,11 +20,21 @@ const globe = new THREE.Mesh(
 );
 scene.add(globe);
 
-// Light
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(5, 3, 5);
-scene.add(light);
-scene.add(new THREE.AmbientLight(0x404040));
+// Lighting setup for better surface detail
+const mainLight = new THREE.DirectionalLight(0xffffff, 1.0);
+mainLight.position.set(2, 2, 2);
+scene.add(mainLight);
+
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+fillLight.position.set(-2, -2, 2);
+scene.add(fillLight);
+
+const backLight = new THREE.DirectionalLight(0xffffff, 0.5);
+backLight.position.set(0, 0, -2);
+scene.add(backLight);
+
+const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+scene.add(ambientLight);
 
 createPolygonPlatesFromSVG('./assets/plates.svg', 0xff5533).then(plates => {
   console.log(plates)
