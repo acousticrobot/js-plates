@@ -40,11 +40,18 @@ scene.add(topLight);
 
 // Create globe
 const globeGeometry = new THREE.SphereGeometry(1, 64, 64);
-const globeMaterial = new THREE.MeshPhongMaterial({
-  color: 0x4488aa,
-  transparent: true,
-  opacity: 0.2,
+// Create base material settings for consistent transparency
+const baseMatSettings = {
   side: THREE.DoubleSide,
+  transparent: true,
+  depthWrite: false,
+  depthTest: true
+};
+
+const globeMaterial = new THREE.MeshPhongMaterial({
+  ...baseMatSettings,
+  color: 0x4488aa,
+  opacity: 0.2,
   shininess: 50
 });
 const globe = new THREE.Mesh(globeGeometry, globeMaterial);
